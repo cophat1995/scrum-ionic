@@ -29,7 +29,9 @@
 }
 /* front pane, placed above back */
 .front {
-    border: double #ddd;
+    border: ridge #ddd;
+    border-radius: 18px;
+    //border: double #ddd;
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
@@ -45,6 +47,8 @@
     transform: rotateY(180deg);
 }
 .img-back{
+    border: ridge #ddd;
+    border-radius: 18px;
     width: 11em;
     height: 17em;
 }

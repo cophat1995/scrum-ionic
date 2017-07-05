@@ -18,8 +18,8 @@
   .divItem {
     //background-color: #F9FAFB ;
     padding-top: 45%;
-    border: double #ddd;
-    border-radius: 2px;
+    border: ridge #ddd;
+    border-radius: 10px;
     text-align: center;
     width: 90px;
     height: 120px;
@@ -28,8 +28,9 @@
   .imgItem{
     margin: 0.1em;
     margin-top: 1.45em;
-    border: double #ddd;
-    border-radius: 2px;
+    border: ridge #ddd;
+    //border: double #ddd;
+    border-radius: 10px;
     text-align: center;
     width: 90px;
     height: 120px
