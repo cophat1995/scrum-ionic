@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Scrum</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="timeOver()">
+        <ion-icon name="time"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="grid-basic-page">
+    <ion-row class="row-page">     
+      <div class="letArrCard" *ngFor="let item of arrCard">
+        <ion-col class="col-page">
+          <div id="idItem" class="divItem" [ngStyle]="{'background-color': bgColor}" (click)="itemTapped($event, item)">
+            <!--<label id="idLabel" class="labelItem">{{item}}</label>-->
+            {{item}}
+          </div> 
+        </ion-col>
+      </div>
+      <img id="idImg" [ngStyle]="{'background-color': bgColor}" class="imgItem" src="{{IMG_SEQUENCE}}" (click)="itemTapped($event, IMG_SEQUENCE)">
+    </ion-row>
+</ion-content>

@@ -1,0 +1,40 @@
+.grid-basic-page {
+    //background-color: #F9FAFB ;
+  .row-page{
+    text-align: center;
+    justify-content: space-around;
+    //margin: 0.1em;
+
+  }
+  .letArrCard{
+    text-align: center;
+    padding: 0.2em;
+    margin: 0.1em;
+  }
+  .col-page {
+    border-radius: 2px;
+    text-align: center;
+  }
+  .divItem {
+    //background-color: #F9FAFB ;
+    padding-top: 45%;
+    border: double #ddd;
+    border-radius: 2px;
+    text-align: center;
+    width: 90px;
+    height: 120px;
+    font-size: 2em;
+  }
+  .imgItem{
+    margin: 0.1em;
+    margin-top: 1.45em;
+    border: double #ddd;
+    border-radius: 2px;
+    text-align: center;
+    width: 90px;
+    height: 120px
+  }
+  .labelItem{
+    font-size: 2em;
+  }
+}

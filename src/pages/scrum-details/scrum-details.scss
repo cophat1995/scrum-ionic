@@ -1,0 +1,60 @@
+.scrum-detail-scss{
+    //background-color: #F9FAFB;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    text-align: center;
+}
+.scroll-content-child{
+    padding-top: 3em;
+}
+/* flip speed goes here */
+.flipper {
+    width: 11em;
+    height: 17em;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+    text-align: center;
+    position: initial;
+    margin: auto;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* front pane, placed above back */
+.front {
+    border: double #ddd;
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    width: 11em;
+    height: 17em;
+    padding-top: 3em;
+}
+.number{
+    font-size: 5em;
+}
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+.img-back{
+    width: 11em;
+    height: 17em;
+}
+.cl-lbl{
+    padding-top: 2em
+}
+.cl-img{
+    position: absolute;
+}
+.img-cf{
+    display: inline;
+    font-size: 5em;
+}
