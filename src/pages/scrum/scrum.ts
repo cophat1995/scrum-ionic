@@ -11,9 +11,9 @@ import { TimeDetails } from '../time/time';
 export class Scrum { 
     IMG_SEQUENCE = ['assets/coffee.png']
     SPECIAL_SEQUENCE = ['$'];
-    FIBONACI_SEQUENCE = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
-    NATURAL_SEQUENCE = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    PLANING_POCKER_SEQUENCE = [0, 1/2, 1, 2, 3, 5, 8, 13, 20, 40, 100];
+    FIBONACI_SEQUENCE = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+    NATURAL_SEQUENCE = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    PLANING_POCKER_SEQUENCE = [0, 1/2, 1, 2, 3, 5, 8, 13, 20, 40];
     T_SHIRT_SEQUENCE = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
     arrCard = [];
     bgColor = 'white';

@@ -14,7 +14,6 @@
 </ion-header>
 
 <ion-content class="grid-basic-page">
-    
   <ion-header>
     <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="scrumPoker" (ionChange)="changeSegment()">
@@ -34,8 +33,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <div [ngSwitch]="scrumPoker">
+    <div class="div_view" [ngSwitch]="scrumPoker">
       <ion-list *ngSwitchCase="'ppoker'">
         <ion-row class="row-page">     
           <div class="letArrCard" *ngFor="let item of arrCard">
@@ -93,5 +91,4 @@
       </ion-list>
 
     </div>
-  </ion-content> 
 </ion-content>
