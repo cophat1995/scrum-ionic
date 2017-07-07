@@ -14,7 +14,6 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = Scrum;
-  sequences =[];
   deckcolors =[];
   deckTime = [];
   model:any = {};
@@ -29,13 +28,6 @@ export class MyApp {
     this.pages = [
       { title: 'Scrum', component: Scrum }
     ];
-
-    this.sequences = [
-        { value: 'planing-pocker',title: 'Plaining Pocker',selected: 'true' },
-        { value: 'fibonaci',title: 'Fibonaci',selected: 'false' },
-        { value: 'natural',title: 'Natural',selected: 'false' },
-        { value: 't-shirt',title: 'T-Shirt',selected: 'false' }
-    ]
 
     this.deckcolors = [
         { value: 'white',title: 'White',selected: 'true' },
@@ -54,7 +46,6 @@ export class MyApp {
     ]
     
     // load data to the UI
-    this.model.sequence = localStorage.getItem('sequenceType');
     this.model.background = localStorage.getItem('backgroundColor'); 
     this.model.duration = localStorage.getItem('duraTion');
     if( localStorage.getItem('autoHide_value') == 'rotateY(180deg)')
@@ -63,16 +54,6 @@ export class MyApp {
         this.autoHide_value = false
     console.log('value auto: ' + this.autoHide_value)
   }       
-
-  changeSequence(){
-    var sequenceType = this.model.sequence;
-    if (typeof(Storage) !== "undefined") {
-      localStorage.setItem('sequenceType', sequenceType);
-    } else {
-      // using session
-    }
-    location.reload();
-  }
   changeBackground(){
     var backgroundColor = this.model.background;
     if (typeof(Storage) !== "undefined") {
