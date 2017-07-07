@@ -3,7 +3,7 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{selectedItem}}</ion-title>
+    <ion-title>My Card</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="timeOver()">
         <ion-icon name="time"></ion-icon>
@@ -22,7 +22,7 @@
         <label class="number">{{selectedItem}}</label></div>
       </div>
       <div class="back">
-        <img class="img-back" src="assets/image-scrum/back.png">
+        <img id="card-back" class="img-back" src="assets/image-scrum/back.png">
       </div>
     </div>
   </div>
