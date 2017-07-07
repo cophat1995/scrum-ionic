@@ -32,7 +32,6 @@
       </ion-segment>
     </ion-toolbar>
   </ion-header>
-
     <div class="div_view" [ngSwitch]="scrumPoker">
       <ion-list *ngSwitchCase="'ppoker'">
         <ion-row class="row-page">     
@@ -89,6 +88,5 @@
           <img id="idImg" [ngStyle]="{'background-color': bgColor}" class="imgItem" src="{{IMG_SEQUENCE}}" (click)="itemTapped($event, IMG_SEQUENCE)">
         </ion-row>
       </ion-list>
-
     </div>
 </ion-content>

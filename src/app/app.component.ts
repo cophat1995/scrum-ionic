@@ -31,7 +31,7 @@ export class MyApp {
 
     this.deckcolors = [
         { value: 'white',title: 'White',selected: 'true' },
-        { value: 'gray',title: 'Gray',selected: 'false' },
+        { value: 'gainsboro',title: 'Gainsboro',selected: 'false' },
         { value: 'cyan',title: 'Cyan',selected: 'false' },
         { value: 'pink',title: 'Pink',selected: 'false' },
         { value: 'lightgreen',title: 'Light Green',selected: 'false' },
