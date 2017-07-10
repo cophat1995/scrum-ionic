@@ -1,38 +1,41 @@
-import { Component } from '@angular/core';
-
+import { Component,ViewChild } from '@angular/core';
+import { MenuController } from 'ionic-angular';
+import { NavController,Navbar } from 'ionic-angular';
 @Component({
   templateUrl: 'time.html'
 })
 
 export class TimeDetails {
+    @ViewChild(Navbar) navBar:Navbar;
+
     mytimeout = null;
     time: any;
     atTime = 0;
     duraTion:any;
-    constructor() { 
+    constructor(public menuCtrl: MenuController,public navCtrl: NavController) { 
         if (typeof(Storage) !== "undefined") {
         this.duraTion = parseInt(localStorage.getItem('duraTion')) || 10;
         }
-        this.startTimer();
+        this.startTimer(this.duraTion);
+        this.menuCtrl.enable(false);
     }
-    onTimeout = function() {
-        if(this.time ===  0) {
-            clearInterval(this.mytimeout);
-            return 0;
-        }
-        else{
-            this.time --;       
-        }
-    };
-    startTimer(){
-        this.time = this.duraTion;      
+    startTimer(duraTion){
+        this.time = duraTion;      
         var _this = this;
         this.mytimeout = setInterval(function(){
             _this.onTimeout();
         }, 1000);
     }
-    start_stopTimer(){
+    onTimeout() {
+        if(this.time == 0) {
+            clearInterval(this.mytimeout);
+        }
+        else{
+            this.time --;       
+        }
+    };
 
+    start_stopTimer(){
         if(this.time == 0)
         {
             this.time = this.duraTion;
@@ -45,7 +48,15 @@ export class TimeDetails {
         }
         else{
             this.atTime = 0;
-            this.startTimer();
+            clearTimeout(this.mytimeout);
+            
+            this.startTimer(this.duraTion);
         }
+    }
+    ionViewDidLoad() {
+        this.navBar.backButtonClick = (e:UIEvent) => {
+            this.navCtrl.pop();
+            this.menuCtrl.enable(true);
+        };
     }
 }

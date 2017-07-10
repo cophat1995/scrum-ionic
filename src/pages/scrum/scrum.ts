@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
+
 import { NavController, NavParams,ModalController } from 'ionic-angular';
 import { ScrumDetails } from '../scrum-details/scrum-details';
 import { TimeDetails } from '../time/time';
@@ -21,7 +22,10 @@ export class Scrum {
     scrumPoker: string = "ppoker"
     maxCardNumber;
 
-    constructor(storage: Storage,public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController){   
+    constructor(storage: Storage,
+        public navCtrl: NavController, 
+        public navParams: NavParams, 
+        public modalCtrl: ModalController){      
         var sequenceType; // fibonaci, planing-pocker, natural, t-shirt
         var backgroundColor; // default is #fffff;\
         if (typeof(Storage) !== "undefined") {

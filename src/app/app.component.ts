@@ -43,6 +43,7 @@ export class MyApp {
         { value: '10', title: '10', selected: 'true' },
         { value: '7', title: '7', selected: 'false' },
         { value: '5', title: '5', selected: 'false'},
+        { value: '3', title: '3', selected: 'false'},
     ]
     
     // load data to the UI
@@ -52,7 +53,6 @@ export class MyApp {
         this.autoHide_value = true
     else
         this.autoHide_value = false
-    console.log('value auto: ' + this.autoHide_value)
   }       
   changeBackground(){
     var backgroundColor = this.model.background;
@@ -70,7 +70,7 @@ export class MyApp {
     } else {
       // using session
     }
-    location.reload();
+    //location.reload();
   }
   autoHide(){
     console.log(this.autoHide_value);
