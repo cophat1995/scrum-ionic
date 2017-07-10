@@ -27,7 +27,11 @@ export class ScrumDetails {
             this.autoHide_value = localStorage.getItem('autoHide_value');
         }
         this.bgColor = backgroundColor;
-        this.currentDeg = this.autoHide_value;       
+        if(this.autoHide_value == null)
+            this.currentDeg = 'rotateY(0)';
+        else
+            this.currentDeg = this.autoHide_value; 
+        console.log(this.currentDeg)      
     }
     roTate(){
         var randomIndex = Math.floor((Math.random() * 6) + 1);

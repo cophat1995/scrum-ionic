@@ -53,6 +53,7 @@ export class MyApp {
         this.autoHide_value = true
     else
         this.autoHide_value = false
+    console.log(this.autoHide_value)
   }       
   changeBackground(){
     var backgroundColor = this.model.background;
