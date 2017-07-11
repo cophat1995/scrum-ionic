@@ -19,19 +19,18 @@
         <ion-label class="item-select label-md">Deck color</ion-label>
         <ion-select [(ngModel)]="model.background" (ionChange)="changeBackground()">
           <div *ngFor="let color of deckcolors" >
-          <ion-option id ="deckCol" value="{{color.value}}" selected="{{color.selected}}">{{color.title}}</ion-option>
+          <ion-option value="{{color.value}}">{{color.title}}</ion-option>
         </div>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label class="item-select label-md">Largest Card</ion-label>
-        <ion-select [(ngModel)]="model.largest" (ionChange)="changeLargest()">
+        <ion-select [(ngModel)]="model.maxCardNumber" (ionChange)="changeLargest()">
           <div *ngFor="let large of largestCard" >
-          <ion-option id ="largeID" value="{{large.value}}" selected="{{large.selected}}">{{large.title}}</ion-option>
+          <ion-option value="{{large}}">{{large}}</ion-option>
         </div>
         </ion-select> 
       </ion-item>
-
 
       <ion-list-header class="list_header">
         General Settings
@@ -56,7 +55,7 @@
         <ion-label  class="item-select label-md">Duracation</ion-label>
         <ion-select [(ngModel)]="model.duration" (ionChange)="changeDuration()">
           <div *ngFor="let time of deckTime">
-          <ion-option value="{{time.value}}" selected="{{time.selected}}">{{time.title}}</ion-option>
+          <ion-option value="{{time.value}}" selected="true" >{{time.title}}</ion-option>
         </div>
         </ion-select>
       </ion-item>

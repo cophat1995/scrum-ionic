@@ -23,15 +23,14 @@ export class ScrumDetails {
             this.img =this.navItem;
         }
         if (typeof(Storage) !== "undefined") {
-            backgroundColor = localStorage.getItem('backgroundColor');
-            this.autoHide_value = localStorage.getItem('autoHide_value');
+            backgroundColor = sessionStorage.getItem('backgroundColor');
+            this.autoHide_value = sessionStorage.getItem('autoHide_value');
         }
         this.bgColor = backgroundColor;
         if(this.autoHide_value == null)
             this.currentDeg = 'rotateY(0)';
         else
-            this.currentDeg = this.autoHide_value; 
-        console.log(this.currentDeg)      
+            this.currentDeg = this.autoHide_value;    
     }
     roTate(){
         var randomIndex = Math.floor((Math.random() * 6) + 1);

@@ -14,14 +14,14 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = Scrum;
-  deckcolors =[];
-  deckTime = [];
-  model:any = {};
-  check:any = {};
   pages: Array<{title: string, component: any}>;
   mainPage: any = Scrum;
-
+  deckcolors =[];
+  largestCard =[];
+  deckTime = [];
+  model:any = {};
   autoHide_value:boolean;
+
   constructor(storage: Storage, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,) {
     this.initializeApp();
     // used for an example of ngFor and navigation
@@ -30,35 +30,53 @@ export class MyApp {
     ];
 
     this.deckcolors = [
-        { value: 'white',title: 'White',selected: 'true' },
-        { value: 'gainsboro',title: 'Gainsboro',selected: 'false' },
-        { value: 'cyan',title: 'Cyan',selected: 'false' },
-        { value: 'pink',title: 'Pink',selected: 'false' },
-        { value: 'lightgreen',title: 'Light Green',selected: 'false' },
-        { value: 'lightyellow',title: 'Light Yellow',selected: 'false' },
-        { value: 'lightblue',title: 'Light Blue',selected: 'false' },
+      { value: 'white',title: 'White'},
+      { value: 'gainsboro',title: 'Gainsboro'},
+      { value: 'cyan',title: 'Cyan'},
+      { value: 'pink',title: 'Pink'},
+      { value: 'lightgreen',title: 'Light Green'},
+      { value: 'lightyellow',title: 'Light Yellow'},
+      { value: 'lightblue',title: 'Light Blue'},
     ]
-
+    this.largestCard=[5,6,7,8,9,10]
     this.deckTime =[
-        { value: '10', title: '10', selected: 'true' },
-        { value: '7', title: '7', selected: 'false' },
-        { value: '5', title: '5', selected: 'false'},
-        { value: '3', title: '3', selected: 'false'},
+      { value: '10', title: '10'},
+      { value: '7', title: '7'},
+      { value: '5', title: '5'},
+      { value: '3', title: '3'},
     ]
     
     // load data to the UI
-    this.model.background = localStorage.getItem('backgroundColor'); 
-    this.model.duration = localStorage.getItem('duraTion');
-    if( localStorage.getItem('autoHide_value') == 'rotateY(180deg)')
+    this.model.background = sessionStorage.getItem('backgroundColor');
+    this.model.maxCardNumber = sessionStorage.getItem('maxCardNumber');
+    this.model.duration = sessionStorage.getItem('duraTion');
+    if(this.model.background == null)
+      this.model.background = 'white';
+
+    if(this.model.maxCardNumber == null)
+      this.model.maxCardNumber = 10;
+
+    if(this.model.duration == null)
+      this.model.duration = 10;
+
+    if( sessionStorage.getItem('autoHide_value') == 'rotateY(180deg)')
         this.autoHide_value = true
     else
         this.autoHide_value = false
-    console.log(this.autoHide_value)
   }       
   changeBackground(){
     var backgroundColor = this.model.background;
     if (typeof(Storage) !== "undefined") {
-      localStorage.setItem('backgroundColor', backgroundColor);
+      sessionStorage.setItem('backgroundColor', backgroundColor);
+    } else {
+      // using session
+    }
+    location.reload();
+  }
+  changeLargest(){
+    var maxCardNumber = this.model.maxCardNumber;
+    if (typeof(Storage) !== "undefined") {
+      sessionStorage.setItem('maxCardNumber', maxCardNumber);
     } else {
       // using session
     }
@@ -67,19 +85,18 @@ export class MyApp {
   changeDuration(){
     var duraTion = this.model.duration;
     if (typeof(Storage) !== "undefined") {
-      localStorage.setItem('duraTion', duraTion);
+      sessionStorage.setItem('duraTion', duraTion);
     } else {
       // using session
     }
     //location.reload();
   }
   autoHide(){
-    console.log(this.autoHide_value);
     if (typeof(Storage) !== "undefined") {
       if(this.autoHide_value == true)
-        localStorage.setItem('autoHide_value', 'rotateY(180deg)');
+        sessionStorage.setItem('autoHide_value', 'rotateY(180deg)');
       else
-        localStorage.setItem('autoHide_value', 'rotateY(0)');
+        sessionStorage.setItem('autoHide_value', 'rotateY(0)');
     } else {
       // using session
     }
