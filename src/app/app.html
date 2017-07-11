@@ -23,6 +23,15 @@
         </div>
         </ion-select>
       </ion-item>
+      <ion-item>
+        <ion-label class="item-select label-md">Largest Card</ion-label>
+        <ion-select [(ngModel)]="model.largest" (ionChange)="changeLargest()">
+          <div *ngFor="let large of largestCard" >
+          <ion-option id ="largeID" value="{{large.value}}" selected="{{large.selected}}">{{large.title}}</ion-option>
+        </div>
+        </ion-select> 
+      </ion-item>
+
 
       <ion-list-header class="list_header">
         General Settings
