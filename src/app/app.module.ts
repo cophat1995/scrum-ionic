@@ -10,6 +10,8 @@ import { Scrum } from '../pages/scrum/scrum';
 import { ScrumDetails } from '../pages/scrum-details/scrum-details';
 import { TimeDetails } from '../pages/time/time';
 
+import { Insomnia } from '@ionic-native/insomnia';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +31,7 @@ import { TimeDetails } from '../pages/time/time';
     TimeDetails,
   ],
   providers: [
+    Insomnia,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

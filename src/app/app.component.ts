@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, } from 'ionic-angular';
+import { Nav, Platform, AlertController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { Scrum } from '../pages/scrum/scrum';
 //import { TimeDetails } from '../time/time';
+
+import { Insomnia } from '@ionic-native/insomnia';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,8 +23,14 @@ export class MyApp {
   deckTime = [];
   model:any = {};
   autoHide_value:boolean;
+<<<<<<< HEAD
 
   constructor(storage: Storage, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,) {
+=======
+  keepScreen_value: boolean;
+  insomnia: Insomnia;
+  constructor(storage: Storage, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen ) {
+>>>>>>> 2fc632facf69e48166fd481788809c09e00ed574
     this.initializeApp();
     // used for an example of ngFor and navigation
     this.pages = [
@@ -63,6 +71,16 @@ export class MyApp {
         this.autoHide_value = true
     else
         this.autoHide_value = false
+<<<<<<< HEAD
+=======
+    console.log(this.autoHide_value)
+
+    //load screen value to UI
+    if( localStorage.getItem('keepScreen_value') == "true")
+        this.keepScreen_value = true
+    else
+        this.keepScreen_value = false
+>>>>>>> 2fc632facf69e48166fd481788809c09e00ed574
   }       
   changeBackground(){
     var backgroundColor = this.model.background;
@@ -101,8 +119,16 @@ export class MyApp {
       // using session
     }
   }
-  keppScreenOn(){
-    
+  keepScreenOn(){
+      if (typeof(Storage) !== "undefined") {
+        if(this.keepScreen_value == true)
+          this.insomnia.keepAwake();
+        else {
+          this.insomnia.allowSleepAgain();
+        }
+      } else {
+        // using session
+      }
   }
   initializeApp() {
     this.platform.ready().then(() => {

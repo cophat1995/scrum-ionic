@@ -23,6 +23,7 @@
         </div>
         </ion-select>
       </ion-item>
+<<<<<<< HEAD
       <ion-item>
         <ion-label class="item-select label-md">Largest Card</ion-label>
         <ion-select [(ngModel)]="model.maxCardNumber" (ionChange)="changeLargest()">
@@ -31,6 +32,8 @@
         </div>
         </ion-select> 
       </ion-item>
+=======
+>>>>>>> 2fc632facf69e48166fd481788809c09e00ed574
 
       <ion-list-header class="list_header">
         General Settings
@@ -45,7 +48,7 @@
         </ion-item>
         <ion-item>
           <ion-label  class="label-md">Keep Screen on</ion-label>
-          <ion-toggle [(ngModel)]="keepScreen_value" (click)="keppScreenOn()" color="dark"></ion-toggle>
+          <ion-toggle [(ngModel)]="keepScreen_value" (ionChange)="keepScreenOn()" color="dark"></ion-toggle>
         </ion-item>  
 
       <ion-list-header class="list_header"> 

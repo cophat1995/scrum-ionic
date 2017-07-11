@@ -33,7 +33,49 @@
     </ion-toolbar>
   </ion-header>
     <div class="div_view" [ngSwitch]="scrumPoker">
-      <ion-list *ngSwitchCase="scrumPoker">
+      <ion-list *ngSwitchCase="'ppoker'">
+        <ion-row class="row-page">     
+          <div class="letArrCard" *ngFor="let item of arrCard">
+            <ion-col class="col-page">
+              <div id="idItem" class="divItem" [ngStyle]="{'background-color': bgColor}" (click)="itemTapped($event, item)">
+                <!--<label id="idLabel" class="labelItem">{{item}}</label>-->
+                {{item}}
+              </div> 
+            </ion-col>
+          </div>
+          <img id="idImg" [ngStyle]="{'background-color': bgColor}" class="imgItem" src="{{IMG_SEQUENCE}}" (click)="itemTapped($event, IMG_SEQUENCE)">
+        </ion-row>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'fibonacci'">
+        <ion-row class="row-page">     
+          <div class="letArrCard" *ngFor="let item of arrCard">
+            <ion-col class="col-page">
+              <div id="idItem" class="divItem" [ngStyle]="{'background-color': bgColor}" (click)="itemTapped($event, item)">
+                <!--<label id="idLabel" class="labelItem">{{item}}</label>-->
+                {{item}}
+              </div> 
+            </ion-col>
+          </div>
+          <img id="idImg" [ngStyle]="{'background-color': bgColor}" class="imgItem" src="{{IMG_SEQUENCE}}" (click)="itemTapped($event, IMG_SEQUENCE)">
+        </ion-row>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'tshirt'">
+        <ion-row class="row-page">     
+          <div class="letArrCard" *ngFor="let item of arrCard">
+            <ion-col class="col-page">
+              <div id="idItem" class="divItem" [ngStyle]="{'background-color': bgColor}" (click)="itemTapped($event, item)">
+                <!--<label id="idLabel" class="labelItem">{{item}}</label>-->
+                {{item}}
+              </div> 
+            </ion-col>
+          </div>
+          <img id="idImg" [ngStyle]="{'background-color': bgColor}" class="imgItem" src="{{IMG_SEQUENCE}}" (click)="itemTapped($event, IMG_SEQUENCE)">
+        </ion-row>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'natural'">
         <ion-row class="row-page">     
           <div class="letArrCard" *ngFor="let item of arrCard">
             <ion-col class="col-page">
