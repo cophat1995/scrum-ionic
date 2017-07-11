@@ -12,10 +12,10 @@ import { TimeDetails } from '../time/time';
 export class Scrum { 
   IMG_SEQUENCE = ['assets/coffee.png']
   SPECIAL_SEQUENCE = ['$'];
-  FIBONACI_SEQUENCE = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55];
-  NATURAL_SEQUENCE = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   PLANING_POCKER_SEQUENCE = [0, 1/2, 1, 2, 3, 5, 8, 13, 20, 40];
+  FIBONACI_SEQUENCE = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55];
   T_SHIRT_SEQUENCE = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+  NATURAL_SEQUENCE = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   arrCard = [];
   bgColor = 'white';
   selectedItem: any;
@@ -25,14 +25,14 @@ export class Scrum {
   constructor(storage: Storage,public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController){      
     this.loadData();
     var curSequenceArray = this.PLANING_POCKER_SEQUENCE;//default = Planning Poker
-    this.changeTypeNumber(curSequenceArray);
+    this.loadCardNumber(curSequenceArray);
   }
   loadData(){
     var sequenceType; // fibonaci, planing-pocker, natural, t-shirt
     var backgroundColor; // default is #fffff;\
     if (typeof(Storage) !== "undefined") {
-       backgroundColor = localStorage.getItem('backgroundColor');
-      this.maxCardNumber = parseInt(localStorage.getItem('maxCardNumber')) || 200;
+       backgroundColor = sessionStorage.getItem('backgroundColor');
+      this.maxCardNumber = parseInt(sessionStorage.getItem('maxCardNumber')) || 200;
     }
     if(sequenceType == null){
        sequenceType = "fibonaci"; // fibonaci, planing-pocker, natural, t-shirt
@@ -42,19 +42,19 @@ export class Scrum {
     }
     this.bgColor = backgroundColor;
   }
-  changeTypeNumber(a){
+  loadCardNumber(a){
     for(var i = 0; i < a.length; i++) {
       if(a[i] <= this.maxCardNumber) {
         if (a[i] == 0.5) {
           this.arrCard[i] = "1/2";
         } else {
           this.arrCard[i] = "" + a[i];
-          }
         }
       }
-      /*var maxCard = curSequenceArray.length + this.SPECIAL_SEQUENCE.length;
-      for(var i = curSequenceArray.length; i < maxCard; i++)
-        this.arrCard[i] = "" + this.SPECIAL_SEQUENCE[i-curSequenceArray.length];*/
+    }
+    var maxCard = this.arrCard.length + this.SPECIAL_SEQUENCE.length;
+    for(var i = this.arrCard.length; i < maxCard; i++)
+      this.arrCard[i] = "" + this.SPECIAL_SEQUENCE[i-this.arrCard.length];
   }
   changeSegment() {
     var curSequenceArray = [];
@@ -70,7 +70,7 @@ export class Scrum {
       curSequenceArray = this.T_SHIRT_SEQUENCE;
     }
     if(this.scrumPoker != "tshirt"){
-      this.changeTypeNumber(curSequenceArray);
+      this.loadCardNumber(curSequenceArray);
     } else {
       this.arrCard = this.T_SHIRT_SEQUENCE;
     }
